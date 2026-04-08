@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/*Début du css du fil d'ariane*/
+header{
+    position: fixed;
+    top: 20px; 
+    left: 20px;
+    right: 20px;
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+
+    background-color: white; 
+    border: 3px solid red;   
+    border-radius: 30px;
+
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    letter-spacing: 1px;
+}
+/*Fin du css du fil d'ariane*/
+
+body {
+    padding-top: 100px;
+}
