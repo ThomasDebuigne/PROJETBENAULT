@@ -8,19 +8,17 @@
 /*Début du css du fil d'ariane*/
 header{
     position: fixed;    
-    top: 20px; 
-    left: 300px;
-    right: 300px;
+    top: 0; 
+    left: 0;
+    right: 0;
     z-index: 10;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 20px 180px;
 
-    background-color: white; 
-    border: 3px solid rgb(255, 0, 0);   
-    border-radius: 50px;
+    background-color: rgb(255, 255, 255); 
 }
 
 header .logo img {
@@ -32,7 +30,80 @@ nav ul {
     display: flex;
 }
 
-nav ul li {
+
+.Devanture {
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    display: block;
+}
+
+ .hero {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 0;
+    padding: 230px 60px; 
+
+    background: url("../images/Photo entreprise BENAULT.jpg") center/cover no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+/* TEXTE à gauche */
+.hero-text {
+    font-family: 'Inter', sans-serif;
+
+    max-width: 1000px;
+    color: rgb(214, 32, 32);
+    position: relative;
+    z-index: 2; 
+    text-align: center;
+
+    margin-right: 100px;
+    margin-bottom: 80px;
+    padding: 10px 25px 10px 25px;
+
+    background-color: #ffffffa1;
+    border-radius: 10px;
+}
+
+.hero-text h1 {
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    font-size: 25px;
+    color: #000000;
+}
+
+/* LOGO à droite dans un bloc */
+.hero-logo {
+    margin-left: 100px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    position: relative;
+    z-index: 2;
+}
+
+.hero-logo img {
+    width: 400px;
+    height: auto;
+}
+
+.Fil ul li {
+    text-align: center;
     margin: 0 28px;
 }
 
@@ -40,9 +111,15 @@ nav ul li a {
     color: #444343;
     text-decoration: none;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 20px;
     transition: color 0.3s;
     letter-spacing: 1px;
+
+    transition: background-color 0.5s;
+}
+
+nav ul li a:hover {
+    background-color: rgb(228, 169, 61);
 }
 /*Fin du css du fil d'ariane*/
 
@@ -53,16 +130,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    padding-left: 40px;
-    padding-right: 40px;
     overflow-x: hidden; /* ← ajoute juste cette ligne */
+    margin: 0;
 }
 /* --------- Diaporama d'images ------------*/
 
 .slideshow-wrapper {
     width: 100%;
     max-width: 1250px;
-    margin: 100px auto;
+    margin: 50px auto;
     position: relative;
     padding: 0 180px; /* espace pour les slides latérales */
 }
@@ -98,7 +174,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10; /* ← au dessus des slides */
+    z-index: 9; /* ← au dessus des slides */
     padding: 16px;
     color: white;
     font-weight: bold;
@@ -156,7 +232,7 @@ body {
     bottom: 15px;
     width: 100%;
     text-align: center;
-    z-index: 10; /* ← au dessus des slides */
+    z-index: 9; /* ← au dessus des slides */
 }
 
   .active, .dot:hover {
@@ -216,3 +292,122 @@ body {
   }
 
   /* ----- Fin diapo images ----- */
+
+  /* ----- Corps Principale de la page ----- */
+
+  .atouts {
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .titre-atout {
+    font-weight: bold;
+    font-size: 35px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .atouts li {
+    position: relative;
+    font-size: small;
+    border: 2px solid rgb(255, 0, 0);
+    border-radius: 20px;
+    padding: 20px 10px 10px 10px;
+    display: inline-block;
+    margin-left: 10px;
+    list-style: none;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+
+  .atouts .text-icones{
+    text-transform: uppercase;
+  }
+
+  /* Grossissement */
+    .atouts li:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        z-index: 2;
+    }
+
+    .details {
+    position: absolute;   
+    top: 100%;            
+    left: 0;
+    width: 100%;
+
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+    .atouts li:hover .details {
+    opacity: 1;
+    transform: translateY(0);
+    }
+
+    .icones{
+    display: block;
+    margin: 0 auto 10px auto;
+    width: 60px;
+    height: auto;
+    background-color: rgba(255, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+
+  /* ----- Fin Corps Principale de la page ----- */
+
+
+
+  /* ---- Footer ---- */
+
+ footer{
+    background-color: rgb(20, 20, 20);
+    padding: 100px 300px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;              
+    justify-content: space-between; 
+    align-items: center;
+    color: white;
+}
+
+.Description {
+    max-width: 600px;
+}
+
+
+.Logo_footer {
+    width: 160px;
+    height: 100px;
+}
+
+footer .Contact ul {
+    display: list-item;
+    padding: 0;
+}
+
+footer .Contact li {
+    display: list-item;
+    padding: 0;
+    list-style: inside;
+}
+
+.Gras {
+    font-weight: bold;
+}
