@@ -1,0 +1,195 @@
+/* --- RESET ET BASES --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+
+body {
+    background-color: #fdfbf3; /* Fond beige clair comme l'image */
+    color: #000;
+    line-height: 1.6;
+}
+
+
+/* --- TON CODE FIL D'ARIANE (INCHANGÉ) --- */
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 10;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+
+
+    background-color: white;
+    border: 3px solid red;  
+    border-radius: 30px;
+}
+
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+.nav__list {
+    list-style: none;
+    display: flex;
+}
+
+
+.nav__item {
+    margin: 0 20px;
+}
+
+
+.nav__link {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    letter-spacing: 1px;
+}
+/* --- FIN DU CODE FIL D'ARIANE --- */
+
+
+/* --- STRUCTURE PRINCIPALE --- */
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* TITRE CONTACTEZ-NOUS */
+.section__title {
+    padding-top: 220px; /* Ajusté pour laisser passer ton header */
+    font-size: clamp(3.5rem, 10vw, 7.5rem);
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 0.9;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+
+/* MISE EN PAGE INFO CONTACT (Grid 2 colonnes) */
+.section--contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-bottom: 100px;
+}
+
+
+/* Colonne de gauche (Texte et détails) */
+.contact-info {
+    flex: 1;
+    min-width: 320px;
+}
+
+
+.contact-info__text {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    max-width: 450px;
+}
+
+
+/* Liste des coordonnées avec flèches */
+.contact-info__details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+.contact-info__detail {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+
+.contact-info__detail strong {
+    font-weight: 700;
+}
+
+
+/* La flèche verte après chaque info */
+.contact-info__detail::after {
+    content: "→";
+    color: #98bc3c; /* Vert de l'image */
+    margin-left: 15px;
+    font-size: 1.6rem;
+}
+
+
+.contact-info__detail:hover {
+    transform: translateX(10px);
+}
+
+
+/* --- SECTION CARTE --- */
+.section--map {
+    margin-top: 80px;
+    padding-bottom: 80px;
+}
+
+
+/* Titre "Comment nous trouver" ajouté via CSS pour le style */
+.section--map::before {
+    content: "COMMENT NOUS TROUVER :";
+    display: block;
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+
+.map-container {
+    width: 100%;
+    height: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+.map-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .section__title {
+        font-size: 3.5rem;
+        padding-top: 150px;
+    }
+   
+    .section--map::before {
+        font-size: 2.5rem;
+    }
+
+
+    .contact-info__detail {
+        font-size: 1.3rem;
+    }
+}
