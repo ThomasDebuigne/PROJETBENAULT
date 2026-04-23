@@ -124,6 +124,7 @@ nav ul li a:hover {
 body {
     background-color: #fdfbf3;
     padding-top: 100px;
+    background-color: #fdfbf3;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -442,6 +443,8 @@ body {
     padding: 80px 40px;
     background-color: #fdfbf3;
     margin-bottom: 60px;
+    background-color: #fdfbf3;
+
 }
 
 .locaux-container {
