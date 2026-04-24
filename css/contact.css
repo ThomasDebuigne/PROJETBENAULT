@@ -189,23 +189,33 @@ footer .Contact li {
 /* --- RESPONSIVE CLEAN --- */
 
 @media (max-width: 1200px) {
-    header { padding: 20px 50px; }
-    footer { padding: 80px 50px; }
+    header { 
+        padding: 20px 50px; 
+    }
+    footer { 
+        padding: 80px 50px; 
+    }
 }
 
 @media (max-width: 900px) {
     header { 
         padding: 15px 30px;
-        flex-direction: column; /* Évite le chevauchement logo/liens */
+        flex-direction: column; 
         height: auto;
     }
-    nav { margin-top: 15px; }
-    nav ul li { margin: 0 15px; }
+    
+    nav { 
+        margin-top: 15px; 
+    }
+    
+    nav ul li { 
+        margin: 0 15px; 
+    }
 
     .contact-grid { 
         flex-direction: column; 
         gap: 100px; 
-        margin-top: 40px; /* Redescend la grille pour que le titre soit cliquable/lisible */
+        margin-top: 40px; 
     }
     
     .section__title { 
@@ -217,21 +227,35 @@ footer .Contact li {
         flex-direction: column;
         gap: 40px;
         text-align: center;
+        align-items: center;
     }
 }
 
 @media (max-width: 600px) {
-    header { position: absolute; } /* Empêche le header de manger tout l'écran mobile au scroll */
+    header { 
+        position: absolute; 
+    } 
     
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 10px;
+    }
+
+    nav ul li {
+        margin: 5px 10px;
+    }
+
+    .nav__link {
+        font-size: 16px;
     }
     
     .card-link {
-        font-size: 18px; /* Évite que l'email ne sorte du cadre */
+        font-size: 18px; 
         word-break: break-all;
     }
 
-    .map-wrapper { height: 350px; }
+    .section__title {
+        font-size: 2.5rem;
+    }
 }

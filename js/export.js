@@ -1,61 +1,57 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-    const pins = document.querySelectorAll('.pin');
+// On attend que le HTML soit totalement chargé avant de lancer le script
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Sélectionne tous les éléments ayant la classe 'pin' (NodeList)
+    const listeMarqueurs = document.querySelectorAll('.pin');
 
-    // Fonction pour gérer l'ouverture/fermeture
-    function handleAccordion(item) {
-        const content = item.querySelector('.accordion-content');
-        const statusIcon = item.querySelector('.status-icon');
-        const flag = item.querySelector('.flag-icon');
+    listeMarqueurs.forEach(marqueur => {
+        // Ajout d'un écouteur d'événement sur chaque point de la carte
+        marqueur.addEventListener('click', function(evenement) {
+            
+            // Empêche le comportement par défaut (ex: si le pin était dans un lien <a>)
+            evenement.preventDefault();
 
-        // Fermer les autres accordéons
-        document.querySelectorAll('.accordion-item').forEach(otherItem => {
-            if (otherItem !== item && otherItem.classList.contains('active')) {
-                otherItem.classList.remove('active');
-                otherItem.querySelector('.accordion-content').style.maxHeight = null;
-                otherItem.querySelector('.status-icon').innerText = "+";
-                if(otherItem.querySelector('.flag-icon')) {
-                    otherItem.querySelector('.flag-icon').style.transform = "rotate(0deg)";
-                }
-            }
-        });
+            // Extraction du nom du pays via la balise <span> du Tooltip
+            const elementTextePays = this.querySelector('span');
+            if (!elementTextePays) return; // Sécurité : si pas de texte, on arrête
 
-        // Toggle l'item actuel
-        const isActive = item.classList.toggle('active');
-        if (isActive) {
-            content.style.maxHeight = content.scrollHeight + "px";
-            statusIcon.innerText = "-";
-            if(flag) {
-                flag.style.transform = "rotate(360deg)";
-                flag.style.transition = "0.6s";
-            }
-        } else {
-            content.style.maxHeight = null;
-            statusIcon.innerText = "+";
-            if(flag) flag.style.transform = "rotate(0deg)";
-        }
-    }
+            /**
+             * NORMALISATION DE LA CHAÎNE DE CARACTÈRES
+             * But : Transformer "Thaïlande" en "thailande" pour correspondre aux ID HTML
+             */
+            const identifiantPays = elementTextePays.textContent
+                .toLowerCase()              // 1. Passage en minuscules
+                .normalize("NFD")           // 2. Décompose les caractères accentués (é -> e + ´)
+                .replace(/[\u0300-\u036f]/g, "") // 3. Supprime les accents via une Expression Régulière
+                .trim();                    // 4. Nettoie les espaces inutiles autour
 
-    // Événement sur les headers
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            handleAccordion(header.parentElement);
-        });
-    });
+            // Sélection du bloc cible par son ID (ex: document.getElementById('cuba'))
+            const blocPaysCible = document.getElementById(identifiantPays);
 
-    // Événement sur les pins de la carte
-    pins.forEach(pin => {
-        pin.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = pin.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
+            if (blocPaysCible) {
+                /**
+                 * CALCUL DE LA POSITION DE DÉFILEMENT
+                 * getBoundingClientRect().top : donne la position par rapport à la vue actuelle (viewport)
+                 * window.pageYOffset : donne la distance déjà scrollée depuis le haut du document
+                 */
+                const positionRelativeBloc = blocPaysCible.getBoundingClientRect().top;
+                const distanceDefilementActuelle = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Constante pour compenser la barre de navigation fixe (qui recouvre le contenu)
+                const hauteurHeaderFixe = 130;
 
-            if (targetElement) {
-                if (!targetElement.classList.contains('active')) {
-                    handleAccordion(targetElement);
-                }
-                // Défilement fluide vers la section
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Formule : Position relative + Défilement total - Taille du header
+                const positionFinaleScroll = positionRelativeBloc + distanceDefilementActuelle - hauteurHeaderFixe;
+
+                /**
+                 * MÉTHODE DE SCROLL MODERNE
+                 * top : la destination en pixels
+                 * behavior: 'smooth' : active l'animation 
+                 */
+                window.scrollTo({
+                    top: positionFinaleScroll,
+                    behavior: 'smooth'
+                });
             }
         });
     });
