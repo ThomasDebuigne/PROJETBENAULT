@@ -1,0 +1,380 @@
+/* --- RESET & POLICE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #fdfbf3;
+    color: #1a1a1a;
+}
+
+/* --- FIL D'ARIANE / HEADER --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 180px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 4px #000;
+}
+
+header .logo img {
+    height: 80px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 28px;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav__link:hover,
+.nav__link.active {
+    color: #e60000;
+}
+
+/* ---- SECTION RÉALISATION ---- */
+main {
+    padding-top: 80px;
+}
+
+.realisation-intro {
+    padding: 80px 70px 120px;
+    max-width: 1600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.realisation-intro h1 {
+    font-size: 70px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+    margin-bottom: 70px;
+    position: relative;
+    display: inline-block;
+}
+
+.realisation-intro h1::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 5px;
+    background-color: #e60000;
+    margin-top: 14px;
+}
+
+/* Bloc complet d'une réalisation */
+.realisation-item {
+    position: relative;
+    min-height: 800px;
+    margin-bottom: 60px;
+
+    background: white;          
+    border-radius: 20px;        
+    padding: 100px 120px 0 100px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08); 
+}
+
+/* Texte placé à gauche de la première image */
+.realisation-texte {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 500px;
+    z-index: 5;
+    padding: 25px 20px;
+}
+
+.realisation-texte1 {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    width: 500px;
+    z-index: 5;
+    padding: 25px 20px;
+}
+
+.realisation-texte2 {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 500px;
+    z-index: 5;
+    padding: 25px 20px;
+}
+
+.realisation-texte h4 {
+    margin-bottom: 22px;
+    font-size: 50px;
+    line-height: 1.1;
+}
+
+.realisation-texte li {
+    font-size: 30px;
+    line-height: 1.6;
+    margin-left: 20px;
+}
+
+.realisation-texte1 h4 {
+    margin-bottom: 22px;
+    font-size: 50px;
+    line-height: 1.1;
+}
+
+.realisation-texte1 li {
+    font-size: 30px;
+    line-height: 1.6;
+    margin-left: 20px;
+}
+
+
+.realisation-texte2 h4 {
+    margin-bottom: 22px;
+    font-size: 50px;
+    line-height: 1.1;
+}
+
+.realisation-texte2 li {
+    font-size: 30px;
+    line-height: 1.6;
+    margin-left: 20px;
+}
+
+
+/* Zone des deux photos */
+.realisation-photos {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 420px);
+    height: 820px;
+}
+
+/* Première image : en haut à droite */
+.photo-top {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 85%;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+}
+
+/* Deuxième image : en bas, décalée vers la gauche */
+.photo-bottom {
+    position: absolute;
+    bottom: 40px;
+    left: -400px;
+    width: 85%;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: -8px 8px 40px rgba(0, 0, 0, 0.45);
+    border-radius: 10px;
+}
+
+.photo-top1 {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 90%;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+}
+
+/* Deuxième image : en bas, décalée vers la gauche */
+.photo-bottom1 {
+    position: absolute;
+    bottom: 40px;
+    left: -400px;
+    width: 90%;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: -8px 8px 40px rgba(0, 0, 0, 0.45);
+    border-radius: 10px;
+}
+
+
+/* ---- Footer ---- */
+footer {
+    background-color: rgb(20, 20, 20);
+    padding: 100px 300px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.Description {
+    max-width: 600px;
+}
+
+.Logo_footer {
+    width: 160px;
+    height: 100px;
+}
+
+footer .Contact ul {
+    display: list-item;
+    padding: 0;
+}
+
+footer .Contact li {
+    display: list-item;
+    padding: 0;
+    list-style: inside;
+}
+
+.Gras {
+    font-weight: bold;
+}
+
+/* ---- Responsive tablette ---- */
+@media (max-width: 1200px) {
+    header {
+        padding: 20px 50px;
+    }
+
+    footer {
+        padding: 80px 50px;
+    }
+
+    .realisation-intro {
+        padding: 80px 50px 100px;
+    }
+
+    .realisation-intro h1 {
+        font-size: 46px;
+    }
+
+    .realisation-item {
+        min-height: 700px;
+    }
+
+    .realisation-texte {
+        width: 310px;
+    }
+
+    .realisation-texte h4 {
+        font-size: 30px;
+    }
+
+    .realisation-photos {
+        width: calc(100% - 330px);
+        height: 700px;
+    }
+
+    .photo-top,
+    .photo-bottom {
+        height: 320px;
+    }
+
+    .photo-bottom {
+        left: -260px;
+    }
+}
+
+/* ---- Responsive mobile ---- */
+@media (max-width: 768px) {
+    header {
+        position: static;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    .nav__link {
+        font-size: 14px;
+    }
+
+    main {
+        padding-top: 0;
+    }
+
+    .realisation-intro {
+        padding: 50px 20px 80px;
+    }
+
+    .realisation-intro h1 {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .realisation-item {
+        min-height: auto;
+        margin-bottom: 80px;
+    }
+
+    .realisation-texte,
+    .realisation-photos {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .realisation-texte {
+        padding: 0;
+        margin-bottom: 25px;
+    }
+
+    .realisation-texte h4 {
+        font-size: 26px;
+    }
+
+    .realisation-texte li {
+        font-size: 17px;
+    }
+
+    .photo-top,
+    .photo-bottom {
+        position: static;
+        display: block;
+        width: 100%;
+        height: 240px;
+        margin-bottom: 25px;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+        padding: 60px 25px;
+    }
+}
