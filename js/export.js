@@ -29,8 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const blocPaysCible = document.getElementById(identifiantPays);
 
             if (blocPaysCible) {
-                /**
-                 * CALCUL DE LA POSITION DE DÉFILEMENT
+                /*
                  * getBoundingClientRect().top : donne la position par rapport à la vue actuelle (viewport)
                  * window.pageYOffset : donne la distance déjà scrollée depuis le haut du document
                  */
@@ -43,8 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Formule : Position relative + Défilement total - Taille du header
                 const positionFinaleScroll = positionRelativeBloc + distanceDefilementActuelle - hauteurHeaderFixe;
 
-                /**
-                 * MÉTHODE DE SCROLL MODERNE
+                /*
                  * top : la destination en pixels
                  * behavior: 'smooth' : active l'animation 
                  */
