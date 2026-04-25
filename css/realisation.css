@@ -11,48 +11,6 @@ body {
     color: #1a1a1a;
 }
 
-/* --- FIL D'ARIANE / HEADER --- */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 180px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 4px #000;
-}
-
-header .logo img {
-    height: 80px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 28px;
-}
-
-.nav__link {
-    text-decoration: none;
-    color: #000;
-    font-weight: 700;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-}
-
-.nav__link:hover,
-.nav__link.active {
-    color: #e60000;
-}
 
 /* ---- SECTION RÉALISATION ---- */
 main {
@@ -221,51 +179,8 @@ main {
 }
 
 
-/* ---- Footer ---- */
-footer {
-    background-color: rgb(20, 20, 20);
-    padding: 100px 300px;
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-}
-
-.Description {
-    max-width: 600px;
-}
-
-.Logo_footer {
-    width: 160px;
-    height: 100px;
-}
-
-footer .Contact ul {
-    display: list-item;
-    padding: 0;
-}
-
-footer .Contact li {
-    display: list-item;
-    padding: 0;
-    list-style: inside;
-}
-
-.Gras {
-    font-weight: bold;
-}
-
-/* ---- Responsive tablette ---- */
+/* ---- TABLETTE ---- */
 @media (max-width: 1200px) {
-    header {
-        padding: 20px 50px;
-    }
-
-    footer {
-        padding: 80px 50px;
-    }
 
     .realisation-intro {
         padding: 80px 50px 100px;
@@ -276,53 +191,49 @@ footer .Contact li {
     }
 
     .realisation-item {
-        min-height: 700px;
+        min-height: 750px;
+        padding: 80px 60px;
     }
 
-    .realisation-texte {
-        width: 310px;
+    .realisation-texte,
+    .realisation-texte1,
+    .realisation-texte2 {
+        width: 300px;
+        left: 20px;
     }
 
-    .realisation-texte h4 {
-        font-size: 30px;
+    .realisation-texte h4,
+    .realisation-texte1 h4,
+    .realisation-texte2 h4 {
+        font-size: 32px;
+    }
+
+    .realisation-texte li,
+    .realisation-texte1 li,
+    .realisation-texte2 li {
+        font-size: 18px;
     }
 
     .realisation-photos {
-        width: calc(100% - 330px);
-        height: 700px;
+        width: calc(100% - 300px);
+        height: 650px;
     }
 
     .photo-top,
-    .photo-bottom {
-        height: 320px;
+    .photo-bottom,
+    .photo-top1,
+    .photo-bottom1 {
+        height: 300px;
     }
 
-    .photo-bottom {
-        left: -260px;
+    .photo-bottom,
+    .photo-bottom1 {
+        left: -250px;
     }
 }
 
-/* ---- Responsive mobile ---- */
+/* ---- MOBILE ---- */
 @media (max-width: 768px) {
-    header {
-        position: static;
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    nav ul li {
-        margin: 0;
-    }
-
-    .nav__link {
-        font-size: 14px;
-    }
 
     main {
         padding-top: 0;
@@ -337,44 +248,55 @@ footer .Contact li {
         margin-bottom: 40px;
     }
 
+    /* 🔥 LE POINT IMPORTANT */
     .realisation-item {
         min-height: auto;
-        margin-bottom: 80px;
+        padding: 30px 20px;
+        margin-bottom: 60px;
     }
 
+    /* 🔥 ON SUPPRIME LES POSITIONS ABSOLUES */
     .realisation-texte,
+    .realisation-texte1,
+    .realisation-texte2,
     .realisation-photos {
         position: static;
         width: 100%;
         height: auto;
     }
 
-    .realisation-texte {
+    .realisation-texte,
+    .realisation-texte1,
+    .realisation-texte2 {
         padding: 0;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
-    .realisation-texte h4 {
+    .realisation-texte h4,
+    .realisation-texte1 h4,
+    .realisation-texte2 h4 {
         font-size: 26px;
     }
 
-    .realisation-texte li {
+    .realisation-texte li,
+    .realisation-texte1 li,
+    .realisation-texte2 li {
         font-size: 17px;
     }
 
+    /* 🔥 IMAGES EN STACK (comme index) */
     .photo-top,
-    .photo-bottom {
+    .photo-bottom,
+    .photo-top1,
+    .photo-bottom1 {
         position: static;
         display: block;
         width: 100%;
-        height: 240px;
-        margin-bottom: 25px;
+        height: 220px;
+        margin-bottom: 20px;
     }
 
-    footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 40px;
-        padding: 60px 25px;
+    .Description {
+        max-width: 100%;
     }
 }

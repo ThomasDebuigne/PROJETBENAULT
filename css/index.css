@@ -5,31 +5,6 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/*Début du css du fil d'ariane*/
-header{
-    position: fixed;    
-    top: 0; 
-    left: 0;
-    right: 0;
-    z-index: 10;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 180px;
-
-    background-color: rgb(255, 255, 255); 
-}
-
-header .logo img {
-    height: 80px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
 
 .Devanture {
     width: 100%;
@@ -47,19 +22,24 @@ nav ul {
     margin-top: 0;
     padding: 230px 60px; 
 
-    background: url("../images/Photo entreprise BENAULT.jpg") center/cover no-repeat;
+    overflow: hidden;
+
 }
 
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
+
+    background: url("../images/Realisation3.jpg") center/cover no-repeat;
+    filter: blur(4px);
+
+    z-index: -1;
+    transform: scale(1.1);
 }
 
 /* TEXTE à gauche */
 .hero-text {
-    font-family: 'Inter', sans-serif;
-
     max-width: 1000px;
     color: rgb(214, 32, 32);
     position: relative;
@@ -67,19 +47,22 @@ nav ul {
     text-align: center;
 
     margin-right: 100px;
-    margin-bottom: 80px;
     padding: 10px 25px 10px 25px;
 
-    background-color: #ffffffa1;
+    background-color: #ffffff;
     border-radius: 10px;
 }
 
 .hero-text h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 70px;
     margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
 .hero-text p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
     font-size: 25px;
     color: #000000;
 }
@@ -101,25 +84,6 @@ nav ul {
     width: 400px;
     height: auto;
 }
-
-.Fil ul li {
-    text-align: center;
-    margin: 0 28px;
-}
-
-nav ul li a {
-    text-decoration: none; 
-    color: #000; 
-    font-weight: 700; 
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #e60000;}
-/*Fin du css du fil d'ariane*/
 
 body {
     background-color: #fdfbf3;
@@ -235,9 +199,6 @@ body {
     z-index: 9; /* ← au dessus des slides */
 }
 
-  .active, .dot:hover {
-    background-color: #717171;
-  }
   
   /* Fading animation */
   .fade {
@@ -506,41 +467,195 @@ body {
   /* ----- Fin Corps Principale de la page ----- */
 
 
+/* ================= RESPONSIVE ================= */
 
-  /* ---- Footer ---- */
+/* Tablettes */
+@media (max-width: 1200px) {
+    .hero {
+        padding: 180px 40px;
+        gap: 40px;
+    }
 
- footer{
-    background-color: rgb(20, 20, 20);
-    padding: 100px 300px;
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;              
-    justify-content: space-between; 
-    align-items: center;
-    color: white;
+    .hero-text h1 {
+        font-size: 50px;
+    }
+
+    .hero-text p {
+        font-size: 22px;
+    }
+
+    .hero-logo img {
+        width: 300px;
+    }
+
+    .slideshow-wrapper {
+        padding: 0 80px;
+    }
+
+    .slideshow-container {
+        height: 500px;
+    }
+
+    .locaux-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer {
+        padding: 80px 80px;
+    }
 }
 
-.Description {
-    max-width: 600px;
+/* Mobiles */
+@media (max-width: 768px) {
+    body {
+        padding-top: 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 120px 20px;
+        text-align: center;
+    }
+
+    .hero-text {
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+    }
+
+    .hero-logo {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .hero-logo img {
+        width: 220px;
+    }
+
+    .slideshow-wrapper {
+        max-width: 100%;
+        padding: 0 20px;
+        margin: 40px auto;
+    }
+
+    .slideshow-container {
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .mySlides.prevSlide,
+    .mySlides.nextSlide {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    .prev,
+    .next {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .titre-atout,
+    .titre-objectif-section {
+        font-size: 34px;
+        text-align: center;
+    }
+
+    .atouts ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .atouts li {
+        width: 90%;
+        text-align: center;
+    }
+
+    .section-objectifs {
+        padding: 60px 20px 100px;
+    }
+
+    .liste-objectifs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .objectifs li {
+        width: 90%;
+    }
+
+    .section-locaux {
+        padding: 60px 20px;
+    }
+
+    .locaux-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .locaux-text h2 {
+        font-size: 32px;
+    }
+
+    .locaux-text p,
+    .locaux-text li {
+        font-size: 16px;
+    }
+
+    .locaux-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .locaux-images img {
+        width: 90%;
+        height: 320px;
+    }
+
+
 }
 
+/* Très petits écrans */
+@media (max-width: 480px) {
+    .hero {
+        padding: 90px 15px;
+    }
 
-.Logo_footer {
-    width: 160px;
-    height: 100px;
-}
+    .hero-text h1 {
+        font-size: 28px;
+    }
 
-footer .Contact ul {
-    display: list-item;
-    padding: 0;
-}
+    .hero-text p {
+        font-size: 16px;
+    }
 
-footer .Contact li {
-    display: list-item;
-    padding: 0;
-    list-style: inside;
-}
+    .hero-logo img {
+        width: 180px;
+    }
 
-.Gras {
-    font-weight: bold;
+    .slideshow-container {
+        height: 240px;
+    }
+
+    .titre-atout,
+    .titre-objectif-section {
+        font-size: 28px;
+    }
+
+    .objectifs li p {
+        font-size: 17px;
+    }
+
+    .locaux-images img {
+        height: 260px;
+    }
 }
