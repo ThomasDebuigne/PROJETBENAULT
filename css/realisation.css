@@ -1,0 +1,302 @@
+/* --- RESET & POLICE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #fdfbf3;
+    color: #1a1a1a;
+}
+
+
+/* ---- SECTION RÉALISATION ---- */
+main {
+    padding-top: 80px;
+}
+
+.realisation-intro {
+    padding: 80px 70px 120px;
+    max-width: 1600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.realisation-intro h1 {
+    font-size: 70px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+    margin-bottom: 70px;
+    position: relative;
+    display: inline-block;
+}
+
+.realisation-intro h1::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 5px;
+    background-color: #e60000;
+    margin-top: 14px;
+}
+
+/* Bloc complet d'une réalisation */
+.realisation-item {
+    position: relative;
+    min-height: 800px;
+    margin-bottom: 60px;
+
+    background: white;          
+    border-radius: 20px;        
+    padding: 100px 120px 0 100px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08); 
+}
+
+/* Texte placé à gauche de la première image */
+.realisation-texte {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 500px;
+    z-index: 5;
+    padding: 25px 20px;
+}
+
+.realisation-texte1 {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    width: 500px;
+    z-index: 5;
+    padding: 25px 20px;
+}
+
+.realisation-texte2 {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 500px;
+    z-index: 5;
+    padding: 25px 20px;
+}
+
+.realisation-texte h4 {
+    margin-bottom: 22px;
+    font-size: 50px;
+    line-height: 1.1;
+}
+
+.realisation-texte li {
+    font-size: 30px;
+    line-height: 1.6;
+    margin-left: 20px;
+}
+
+.realisation-texte1 h4 {
+    margin-bottom: 22px;
+    font-size: 50px;
+    line-height: 1.1;
+}
+
+.realisation-texte1 li {
+    font-size: 30px;
+    line-height: 1.6;
+    margin-left: 20px;
+}
+
+
+.realisation-texte2 h4 {
+    margin-bottom: 22px;
+    font-size: 50px;
+    line-height: 1.1;
+}
+
+.realisation-texte2 li {
+    font-size: 30px;
+    line-height: 1.6;
+    margin-left: 20px;
+}
+
+
+/* Zone des deux photos */
+.realisation-photos {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 420px);
+    height: 820px;
+}
+
+/* Première image : en haut à droite */
+.photo-top {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 85%;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+}
+
+/* Deuxième image : en bas, décalée vers la gauche */
+.photo-bottom {
+    position: absolute;
+    bottom: 40px;
+    left: -400px;
+    width: 85%;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: -8px 8px 40px rgba(0, 0, 0, 0.45);
+    border-radius: 10px;
+}
+
+.photo-top1 {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 90%;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+}
+
+/* Deuxième image : en bas, décalée vers la gauche */
+.photo-bottom1 {
+    position: absolute;
+    bottom: 40px;
+    left: -400px;
+    width: 90%;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: -8px 8px 40px rgba(0, 0, 0, 0.45);
+    border-radius: 10px;
+}
+
+
+/* ---- TABLETTE ---- */
+@media (max-width: 1200px) {
+
+    .realisation-intro {
+        padding: 80px 50px 100px;
+    }
+
+    .realisation-intro h1 {
+        font-size: 46px;
+    }
+
+    .realisation-item {
+        min-height: 750px;
+        padding: 80px 60px;
+    }
+
+    .realisation-texte,
+    .realisation-texte1,
+    .realisation-texte2 {
+        width: 300px;
+        left: 20px;
+    }
+
+    .realisation-texte h4,
+    .realisation-texte1 h4,
+    .realisation-texte2 h4 {
+        font-size: 32px;
+    }
+
+    .realisation-texte li,
+    .realisation-texte1 li,
+    .realisation-texte2 li {
+        font-size: 18px;
+    }
+
+    .realisation-photos {
+        width: calc(100% - 300px);
+        height: 650px;
+    }
+
+    .photo-top,
+    .photo-bottom,
+    .photo-top1,
+    .photo-bottom1 {
+        height: 300px;
+    }
+
+    .photo-bottom,
+    .photo-bottom1 {
+        left: -250px;
+    }
+}
+
+/* ---- MOBILE ---- */
+@media (max-width: 768px) {
+
+    main {
+        padding-top: 0;
+    }
+
+    .realisation-intro {
+        padding: 50px 20px 80px;
+    }
+
+    .realisation-intro h1 {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    /* 🔥 LE POINT IMPORTANT */
+    .realisation-item {
+        min-height: auto;
+        padding: 30px 20px;
+        margin-bottom: 60px;
+    }
+
+    /* 🔥 ON SUPPRIME LES POSITIONS ABSOLUES */
+    .realisation-texte,
+    .realisation-texte1,
+    .realisation-texte2,
+    .realisation-photos {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .realisation-texte,
+    .realisation-texte1,
+    .realisation-texte2 {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .realisation-texte h4,
+    .realisation-texte1 h4,
+    .realisation-texte2 h4 {
+        font-size: 26px;
+    }
+
+    .realisation-texte li,
+    .realisation-texte1 li,
+    .realisation-texte2 li {
+        font-size: 17px;
+    }
+
+    /* 🔥 IMAGES EN STACK (comme index) */
+    .photo-top,
+    .photo-bottom,
+    .photo-top1,
+    .photo-bottom1 {
+        position: static;
+        display: block;
+        width: 100%;
+        height: 220px;
+        margin-bottom: 20px;
+    }
+
+    .Description {
+        max-width: 100%;
+    }
+}
