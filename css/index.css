@@ -622,12 +622,6 @@ footer .Contact ul {
 }
 
 
-<<<<<<< HEAD
-    .locaux-images img {
-        height: 260px;
-    }
-}
-=======
 footer .Contact li {
     display: list-item;
     padding: 0;
@@ -638,4 +632,3 @@ footer .Contact li {
 .Gras {
     font-weight: bold;
 }
->>>>>>> 57cb6f89a3d1212d83bd74351cdf257863bc534c
