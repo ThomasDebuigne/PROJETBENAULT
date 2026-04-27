@@ -2,41 +2,23 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-=======
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
->>>>>>> 81eea2d71579817244ce00e23aa850e8dd8c02bc
 }
 
 /*Début du css du fil d'ariane*/
 header{
     position: fixed;    
-<<<<<<< HEAD
-    top: 20px; 
-    left: 120px;
-    right: 120px;
-=======
     top: 0; 
     left: 0;
     right: 0;
->>>>>>> 81eea2d71579817244ce00e23aa850e8dd8c02bc
     z-index: 10;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-<<<<<<< HEAD
-    padding: 20px 50px;
-
-    background-color: white; 
-    border: 3px solid rgb(255, 0, 0);   
-    border-radius: 50px;
-=======
     padding: 20px 180px;
     box-shadow: 0 0 4px #000;
     background-color: rgb(255, 255, 255); 
->>>>>>> 81eea2d71579817244ce00e23aa850e8dd8c02bc
 }
 
 header .logo img {
@@ -48,24 +30,6 @@ nav ul {
     display: flex;
 }
 
-<<<<<<< HEAD
-nav ul li {
-    margin: 0 28px;
-}
-
-nav ul li a {
-    color: #444343;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 17px;
-    transition: color 0.3s;
-    letter-spacing: 1px;
-}
-/*Fin du css du fil d'ariane*/
-
-body {
-    padding-top: 100px;
-=======
 
 .Devanture {
     width: 100%;
@@ -719,5 +683,4 @@ body {
     .locaux-images img {
         height: 260px;
     }
->>>>>>> 81eea2d71579817244ce00e23aa850e8dd8c02bc
 }
