@@ -5,36 +5,30 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-
 /*Début du css du fil d'ariane*/
 header{
     position: fixed;    
-    top: 0;
+    top: 0; 
     left: 0;
     right: 0;
     z-index: 10;
-
 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 180px;
     box-shadow: 0 0 4px #000;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255); 
 }
-
 
 header .logo img {
     height: 80px;
 }
 
-
 nav ul {
     list-style: none;
     display: flex;
 }
-
-
 
 
 .Devanture {
@@ -44,21 +38,18 @@ nav ul {
     display: block;
 }
 
-
 .hero {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-
     margin-top: 0;
     padding: 500px 60px 100px 60px; 
 
+    overflow: hidden;
 
-    background: url("../images/Photo entreprise BENAULT.jpg") center/cover no-repeat;
 }
-
 
 .hero::before {
     content: "";
@@ -77,17 +68,13 @@ nav ul {
     color: rgb(214, 32, 32);
     position: relative;
     z-index: 2; 
-    text-align: center;
 
     margin-right: 100px;
-    margin-bottom: 80px;
     padding: 10px 25px 10px 25px;
 
-
-    background-color: #ffffffa1;
+    background-color: #ffffff;
     border-radius: 10px;
 }
-
 
 .hero-text h1 {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -101,7 +88,6 @@ nav ul {
     margin: 0 20px; 
 }
 
-
 .hero-text p {
     text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -110,7 +96,6 @@ nav ul {
     font-size: 18px;
     color: #000000;
 }
-
 
 
 body {
@@ -127,7 +112,6 @@ body {
 }
 /* --------- Diaporama d'images ------------*/
 
-
 .slideshow-wrapper {
     width: 100%;
     max-width: 1250px;
@@ -135,7 +119,6 @@ body {
     position: relative;
     padding: 0 180px; /* espace pour les slides latérales */
 }
-
 
 /* Centrer le diaporama au milieu de l'écran */
 .slideshow-container {
@@ -147,8 +130,7 @@ body {
     border-radius: 20px;
 }
 
-
- 
+  
   /* Hide the images by default */
   .mySlides {
     position: absolute;
@@ -162,8 +144,7 @@ body {
     overflow: hidden;
 }
 
-
- 
+  
   /* Next & previous buttons */
  .prev, .next {
     cursor: pointer;
@@ -180,16 +161,16 @@ body {
     border-radius: 50px;
     background-color: rgba(0,0,0,0.4); /* ← toujours visible */
 }
- 
- 
+  
+  
 .prev { left: 10px; }
 .next { right: 10px; }
- 
+  
   /* On hover, add a black background color with a little bit see-through */
  .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
 }
- 
+  
   /* Caption text */
   .text {
     color: #f2f2f2;
@@ -200,7 +181,7 @@ body {
     width: 100%;
     text-align: center;
   }
- 
+  
   /* Number text (1/3 etc) */
   .numbertext {
     color: #f2f2f2;
@@ -209,29 +190,22 @@ body {
     position: absolute;
     top: 0;
   }
- 
+  
   /* The dots/bullets/indicators */
  
 
-
-  .active, .dot:hover {
-    background-color: #717171;
-  }
- 
+  
   /* Fading animation */
   .fade {
     animation-name: fade;
     animation-duration: 1.5s;
   }
 
-
   .mySlides img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
-
 
 
 .mySlides.active {
@@ -250,7 +224,6 @@ body {
     transform: translateX(100%) scale(0.75);
 }
 
-
 .mySlides::after {
     content: "";
     position: absolute;
@@ -259,36 +232,30 @@ body {
     pointer-events: none;
 }
 
-
 /* gauche */
 .prevSlide::after {
     background: linear-gradient(to right, rgba(0,0,0,0.6), transparent);
 }
 
-
 /* droite */
 .nextSlide::after {
     background: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
 }
- 
+  
   @keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
   }
 
-
   /* ----- Fin diapo images ----- */
 
-
   /* ----- Corps Principale de la page ----- */
-
 
   .atouts {
     margin-bottom: 50px;
     display: flex;
     justify-content: center;
   }
-
 
   .titre-atout {
     font-weight: bold;
@@ -297,7 +264,6 @@ body {
     display: flex;
     justify-content: center;
   }
-
 
   .atouts li {
     position: relative;
@@ -310,17 +276,14 @@ body {
     margin: 40px 10px 0 10px;
     list-style: none;
 
-
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
   }
-
 
   .atouts .text-icones{
     font-size: 15px;
     text-transform: uppercase;
   }
-
 
   /* Grossissement */
     .atouts li:hover {
@@ -329,18 +292,15 @@ body {
         z-index: 2;
     }
 
-
     .details {
-    position: absolute;  
+    position: absolute;   
     top: 100%;            
     left: 0;
     width: 100%;
 
-
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease;
-
 
     background-color: white;
     color: black;
@@ -348,17 +308,14 @@ body {
     border-radius: 10px;
     font-size: 14px;
 
-
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     z-index: 10;
     }
-
 
     .atouts li:hover .details {
     opacity: 1;
     transform: translateY(0);
     }
-
 
     .icones{
     display: block;
@@ -373,12 +330,7 @@ body {
 
 
 
-
-
-
-
 /* ----- SECTION OBJECTIFS ----- */
-
 
 .section-objectifs {
     background-color: #ffffffe5; /* change la couleur ici */
@@ -386,7 +338,6 @@ body {
     padding-bottom: 150px;
     margin-top: 50px;
 }
-
 
 /* Titre dans le bloc */
 .titre-objectif-section {
@@ -396,13 +347,11 @@ body {
     margin-bottom: 50px;
 }
 
-
 /* Reprend ton système existant */
 .objectifs {
     display: flex;
     justify-content: center;
 }
-
 
 .liste-objectifs {
     display: flex;
@@ -411,7 +360,6 @@ body {
     gap: 20px;
     max-width: 1200px;
 }
-
 
 .objectifs li {
     border: 2px solid rgb(255, 0, 0);
@@ -422,16 +370,13 @@ body {
     text-align: center;
     background-color: #fff;
 
-
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 .objectifs li:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
-
 
 .text-objectif {
     font-weight: bold;
@@ -441,17 +386,13 @@ body {
     margin-bottom: 10px;
 }
 
-
 .objectifs li p {
     font-size: 22px;
     color: #333;
 }
 
 
-
-
 /* ----- SECTION LOCAUX ----- */
-
 
 .section-locaux {
     padding: 80px 40px;
@@ -459,9 +400,7 @@ body {
     margin-bottom: 60px;
     background-color: #fdfbf3;
 
-
 }
-
 
 .locaux-container {
     display: flex;
@@ -473,7 +412,6 @@ body {
     margin: auto;
     text-align: center;
 }
-
 
 /* TEXTE */
 .locaux-titre-wrapper {
@@ -502,6 +440,10 @@ body {
 
 .locaux-titre-rule {
     flex: 1;
+    max-width: 80px;
+    height: 2px;
+    background: #e0e0e0;
+    position: relative;
 }
 
 .locaux-titre-rule.rule-left::after,
@@ -527,7 +469,6 @@ body {
     gap: 8px;
 }
 
-
 .locaux-adresse::before,
 .locaux-adresse::after {
     content: '';
@@ -538,7 +479,6 @@ body {
     opacity: 0.6;
 }
 
-
 /* IMAGES */
 .locaux-images {
     flex: 1;
@@ -547,14 +487,12 @@ body {
     justify-content: center;
 }
 
-
 /* format vertical */
 .locaux-images img {
     width: 250px;
     height: 400px;
     object-fit: cover;
     border-radius: 20px;
-
 
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
@@ -579,51 +517,195 @@ body {
   /* ----- Fin Corps Principale de la page ----- */
 
 
+/* ================= RESPONSIVE ================= */
 
+/* Tablettes */
+@media (max-width: 1200px) {
+    .hero {
+        padding: 180px 40px;
+        gap: 40px;
+    }
 
+    .hero-text h1 {
+        font-size: 50px;
+    }
 
+    .hero-text p {
+        font-size: 22px;
+    }
 
-  /* ---- Footer ---- */
+    .hero-logo img {
+        width: 300px;
+    }
 
+    .slideshow-wrapper {
+        padding: 0 80px;
+    }
 
- footer{
-    background-color: rgb(20, 20, 20);
-    padding: 100px 300px;
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;              
-    justify-content: space-between;
-    align-items: center;
-    color: white;
+    .slideshow-container {
+        height: 500px;
+    }
+
+    .locaux-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer {
+        padding: 80px 80px;
+    }
 }
 
+/* Mobiles */
+@media (max-width: 768px) {
+    body {
+        padding-top: 0;
+    }
 
-.Description {
-    max-width: 600px;
+    .hero {
+        flex-direction: column;
+        padding: 120px 20px;
+        text-align: center;
+    }
+
+    .hero-text {
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+    }
+
+    .hero-logo {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .hero-logo img {
+        width: 220px;
+    }
+
+    .slideshow-wrapper {
+        max-width: 100%;
+        padding: 0 20px;
+        margin: 40px auto;
+    }
+
+    .slideshow-container {
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .mySlides.prevSlide,
+    .mySlides.nextSlide {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    .prev,
+    .next {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .titre-atout,
+    .titre-objectif-section {
+        font-size: 34px;
+        text-align: center;
+    }
+
+    .atouts ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .atouts li {
+        width: 90%;
+        text-align: center;
+    }
+
+    .section-objectifs {
+        padding: 60px 20px 100px;
+    }
+
+    .liste-objectifs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .objectifs li {
+        width: 90%;
+    }
+
+    .section-locaux {
+        padding: 60px 20px;
+    }
+
+    .locaux-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .locaux-text h2 {
+        font-size: 32px;
+    }
+
+    .locaux-text p,
+    .locaux-text li {
+        font-size: 16px;
+    }
+
+    .locaux-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .locaux-images img {
+        width: 90%;
+        height: 320px;
+    }
+
+
 }
 
+/* Très petits écrans */
+@media (max-width: 480px) {
+    .hero {
+        padding: 90px 15px;
+    }
 
+    .hero-text h1 {
+        font-size: 28px;
+    }
 
+    .hero-text p {
+        font-size: 16px;
+    }
 
-.Logo_footer {
-    width: 160px;
-    height: 100px;
-}
+    .hero-logo img {
+        width: 180px;
+    }
 
+    .slideshow-container {
+        height: 240px;
+    }
 
-footer .Contact ul {
-    display: list-item;
-    padding: 0;
-}
+    .titre-atout,
+    .titre-objectif-section {
+        font-size: 28px;
+    }
 
+    .objectifs li p {
+        font-size: 17px;
+    }
 
-footer .Contact li {
-    display: list-item;
-    padding: 0;
-    list-style: inside;
-}
-
-
-.Gras {
-    font-weight: bold;
+    .locaux-images img {
+        height: 260px;
+    }
 }
