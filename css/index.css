@@ -45,7 +45,7 @@ nav ul {
     align-items: center;
 
     margin-top: 0;
-    padding: 230px 60px; 
+    padding: 500px 60px 100px 60px; 
 
     overflow: hidden;
 
@@ -56,8 +56,7 @@ nav ul {
     position: absolute;
     inset: 0;
 
-    background: url("../images/Realisation3.jpg") center/cover no-repeat;
-    filter: blur(4px);
+    background: url("../images/SALLE_SPORT_BERCK.JPG") center/cover no-repeat;
 
     z-index: -1;
     transform: scale(1.1);
@@ -65,11 +64,10 @@ nav ul {
 
 /* TEXTE à gauche */
 .hero-text {
-    max-width: 1000px;
+    max-width:500px;
     color: rgb(214, 32, 32);
     position: relative;
     z-index: 2; 
-    text-align: center;
 
     margin-right: 100px;
     padding: 10px 25px 10px 25px;
@@ -80,35 +78,25 @@ nav ul {
 
 .hero-text h1 {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 70px;
+    font-size: 30px;
+    margin-left: 10px;
     margin-bottom: 15px;
     text-transform: uppercase;
+    justify-content: center;
+    border-bottom: 2px solid #ff0000; 
+    line-height: 50px;
+    margin: 0 20px; 
 }
 
 .hero-text p {
+    text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     
-    font-size: 25px;
+    margin-top: 10px;
+    font-size: 18px;
     color: #000000;
 }
 
-/* LOGO à droite dans un bloc */
-.hero-logo {
-    margin-left: 100px;
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-
-    position: relative;
-    z-index: 2;
-}
-
-.hero-logo img {
-    width: 400px;
-    height: auto;
-}
 
 body {
     background-color: #fdfbf3;
@@ -204,25 +192,7 @@ body {
   }
   
   /* The dots/bullets/indicators */
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-    z-index: 1;   
-  }
-
- .dots-container {
-    position: absolute;
-    bottom: 15px;
-    width: 100%;
-    text-align: center;
-    z-index: 9; /* ← au dessus des slides */
-}
+ 
 
   
   /* Fading animation */
@@ -367,7 +337,6 @@ body {
     padding: 80px 20px;
     padding-bottom: 150px;
     margin-top: 50px;
-    margin-bottom: 50px;
 }
 
 /* Titre dans le bloc */
@@ -435,35 +404,79 @@ body {
 
 .locaux-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 50px;
     max-width: 1500px;
     margin: auto;
+    text-align: center;
 }
 
 /* TEXTE */
-.locaux-text {
+.locaux-titre-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0px;
+}
+
+.locaux-titre-line {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+}
+
+.locaux-titre-line h2 {
+    font-size: 100px;
+    font-weight: 800;
+    color: #1a2e5a;
+    margin:  0;
+    white-space: nowrap;
+}
+
+.locaux-titre-rule {
     flex: 1;
+    max-width: 80px;
+    height: 2px;
+    background: #e0e0e0;
+    position: relative;
 }
 
-.locaux-text h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
+.locaux-titre-rule.rule-left::after,
+.locaux-titre-rule.rule-right::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #E8963A;
 }
 
-.locaux-text p {
-    font-size: 18px;
-    margin-bottom: 15px;
+.locaux-titre-rule.rule-left::after { right: 0; }
+.locaux-titre-rule.rule-right::after { left: 0; }
+
+.locaux-adresse {
+    font-size: 35px;
+    color: #291818;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.locaux-text ul {
-    margin-bottom: 15px;
-    padding-left: 20px;
-}
-
-.locaux-text li {
-    font-size: 18px;
+.locaux-adresse::before,
+.locaux-adresse::after {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1.5px;
+    background: #E8963A;
+    opacity: 0.6;
 }
 
 /* IMAGES */
@@ -485,9 +498,21 @@ body {
     transition: transform 0.3s ease;
 }
 
+.locaux-images-principale img {
+    width: 1670px;
+    height: 820px;
+    object-fit: cover;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
 .locaux-images img:hover {
     transform: scale(1.05);
 }
+
+
 
   /* ----- Fin Corps Principale de la page ----- */
 
