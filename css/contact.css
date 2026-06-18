@@ -11,10 +11,12 @@ body {
     color: #1a1a1a;
 }
 
-/* --- FIL D'ARIANE / HEADER --- */
+/* --- HEADER --- */
 header {
-    position: fixed;    
-    top: 0; left: 0; right: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     display: flex;
     justify-content: space-between;
@@ -32,19 +34,24 @@ nav ul {
     display: flex;
 }
 
-nav ul li { margin: 0 28px; }
+nav ul li {
+    margin: 0 28px;
+}
 
-.nav__link { 
-    text-decoration: none; 
-    color: #000; 
-    font-weight: 700; 
+.nav__link {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: color 0.3s;
 }
 
-.nav__link:hover, .nav__link.active { color: #e60000; }
+.nav__link:hover,
+.nav__link.active {
+    color: #e60000;
+}
 
 /* --- HERO SECTION --- */
 .hero {
@@ -53,12 +60,13 @@ nav ul li { margin: 0 28px; }
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url("../images/Photo entreprise BENAULT.jpg") center/cover no-repeat;
+    background:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("../images/Photo entreprise BENAULT.jpg") center/cover no-repeat;
 }
 
 .section__title {
-    font-size: clamp(56px, 12vw, 128px);  
+    font-size: clamp(56px, 12vw, 128px);
     font-weight: 900;
     color: white;
     letter-spacing: -5px;
@@ -66,13 +74,14 @@ nav ul li { margin: 0 28px; }
     line-height: 0.8;
 }
 
-/* --- GRILLE DE CONTACT --- */
+/* --- CONTAINER --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
 }
 
+/* --- GRILLE DE CONTACT --- */
 .contact-grid {
     display: flex;
     gap: 50px;
@@ -97,13 +106,13 @@ nav ul li { margin: 0 28px; }
     box-shadow: 0 30px 60px rgba(0,0,0,0.15);
 }
 
-/* Insertion des logos */
+/* --- ICONES CARTES --- */
 .card-icon {
     position: absolute;
-    top: -60px; 
+    top: -60px;
     left: 50%;
     transform: translateX(-50%);
-    width: 120px; 
+    width: 120px;
     height: 120px;
     background: white;
     border-radius: 50%;
@@ -114,7 +123,7 @@ nav ul li { margin: 0 28px; }
 }
 
 .card-icon img {
-    width: 150%; 
+    width: 150%;
     height: 150%;
     object-fit: cover;
 }
@@ -133,6 +142,249 @@ nav ul li { margin: 0 28px; }
     margin-bottom: 15px;
 }
 
+/* --- SECTION OFFRES TYPE LISTE CLIQUABLE --- */
+.offers-section {
+    margin-bottom: 100px;
+}
+
+.offers-title {
+    font-size: 42px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-bottom: 18px;
+    letter-spacing: -1px;
+}
+
+.offers-underline {
+    width: 70px;
+    height: 4px;
+    background-color: #e60000;
+    margin-bottom: 35px;
+}
+
+.offers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.offer-card {
+    background-color: #ffffff;
+    text-decoration: none;
+    color: #1a1a1a;
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 6px solid #e60000;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 45px rgba(0,0,0,0.13);
+    background-color: #ffffff;
+}
+
+.offer-main {
+    flex: 1;
+}
+
+.offer-label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #e60000;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.offer-main h3 {
+    font-size: 25px;
+    font-weight: 900;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.offer-main p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+}
+
+.offer-arrow {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: #e60000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 800;
+    margin-left: 30px;
+    transition: all 0.3s ease;
+}
+
+.offer-card:hover .offer-arrow {
+    background-color: #1a1a1a;
+    transform: translateX(5px);
+}
+
+/* --- FORMULAIRE DE CONTACT / RECRUTEMENT --- */
+.contact-form-section {
+    background-color: #ffffff;
+    padding: 70px 60px;
+    margin-bottom: 100px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 9px;
+    height: 100%;
+    background-color: #e60000;
+}
+
+.form-title {
+    font-size: 42px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-bottom: 18px;
+    letter-spacing: -1px;
+}
+
+.form-underline {
+    width: 70px;
+    height: 4px;
+    background-color: #e60000;
+    margin-bottom: 60px;
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: none;
+    background-color: #fdfbf3;
+    padding: 17px 18px;
+    font-size: 15px;
+    color: #1a1a1a;
+    font-weight: 600;
+    outline: none;
+    border-radius: 0;
+    box-shadow: inset 0 0 0 1px #dedbd1;
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #1a1a1a;
+    opacity: 0.8;
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: auto;
+    color: #1a1a1a;
+}
+
+.form-group textarea {
+    min-height: 210px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    background-color: #ffffff;
+    box-shadow: inset 0 0 0 2px #e60000;
+}
+
+/* --- CHAMPS FICHIERS CV / LETTRE --- */
+.form-file-group {
+    margin-bottom: 26px;
+}
+
+.form-file-group label {
+    display: block;
+    font-size: 16px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+}
+
+.form-file-group input[type="file"] {
+    width: 100%;
+    background-color: #fdfbf3;
+    color: #1a1a1a;
+    padding: 14px;
+    border: none;
+    box-shadow: inset 0 0 0 1px #dedbd1;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form-file-group input[type="file"]:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 2px #e60000;
+    background-color: #ffffff;
+}
+
+.form-file-group p {
+    font-size: 13px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* --- BOUTON FORMULAIRE --- */
+.form-submit {
+    display: inline-block;
+    background-color: #e60000;
+    color: #ffffff;
+    border: none;
+    margin-top: 10px;
+    padding: 18px 42px;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-submit:hover {
+    background-color: #1a1a1a;
+    transform: translateY(-3px);
+}
+
 /* --- MAP --- */
 .map-title {
     font-size: 56px;
@@ -148,16 +400,20 @@ nav ul li { margin: 0 28px; }
     margin-bottom: 100px;
 }
 
-.map-iframe { width: 100%; height: 100%; border: none; }
+.map-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
 
-/* ---- Footer ---- */
+/* --- FOOTER --- */
 footer {
     background-color: rgb(20, 20, 20);
     padding: 100px 300px;
     width: 100%;
     box-sizing: border-box;
-    display: flex;              
-    justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     color: white;
 }
@@ -186,43 +442,74 @@ footer .Contact li {
     font-weight: bold;
 }
 
-/* --- RESPONSIVE CLEAN --- */
+/* --- RESPONSIVE --- */
 
-/* Tablettes et petits écrans (Laptops) */
+/* Tablettes et petits écrans */
 @media (max-width: 1200px) {
-    header { padding: 20px 50px; }
-    footer { padding: 80px 50px; }
+    header {
+        padding: 20px 50px;
+    }
+
+    footer {
+        padding: 80px 50px;
+    }
 }
 
-/* Tablettes (Portrait) et Mobiles larges */
+/* Tablettes portrait et mobiles larges */
 @media (max-width: 992px) {
-    header { 
+    header {
         padding: 15px 30px;
-        flex-direction: column; 
+        flex-direction: column;
         height: auto;
     }
-    
-    nav { margin-top: 15px; }
-    
-    nav ul { 
+
+    nav {
+        margin-top: 15px;
+    }
+
+    nav ul {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
     }
 
-    nav ul li { margin: 0 10px; }
+    nav ul li {
+        margin: 0 10px;
+    }
 
-    .contact-grid { 
-        flex-direction: column; 
-        gap: 100px; 
-        margin-top: 40px; 
+    .contact-grid {
+        flex-direction: column;
+        gap: 100px;
+        margin-top: 40px;
     }
-    
-    .section__title { 
-        font-size: clamp(40px, 8vw, 60px); 
-        letter-spacing: -2px; 
+
+    .section__title {
+        font-size: clamp(40px, 8vw, 60px);
+        letter-spacing: -2px;
     }
-    
+
+    .offers-title {
+        font-size: 34px;
+    }
+
+    .contact-form-section {
+        padding: 55px 35px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 0;
+    }
+
+    .form-title {
+        font-size: 34px;
+    }
+
+    .form-underline {
+        margin-bottom: 45px;
+    }
+
     footer {
         flex-direction: column;
         gap: 40px;
@@ -231,17 +518,31 @@ footer .Contact li {
         padding: 60px 20px;
     }
 
-    .Description { max-width: 100%; }
+    .Description {
+        max-width: 100%;
+    }
 }
 
-/* Téléphones (Smartphone) */
+/* Smartphones */
 @media (max-width: 600px) {
-    header { position: relative; }
+    header {
+        position: relative;
+    }
 
-    .nav__link { font-size: 14px; }
-    
+    .nav__link {
+        font-size: 14px;
+    }
+
+    .hero {
+        height: 360px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
     .card-link {
-        font-size: 18px; 
+        font-size: 18px;
         word-break: break-all;
     }
 
@@ -250,7 +551,87 @@ footer .Contact li {
         line-height: 1.1;
     }
 
-    .map-wrapper { height: 350px; }
+    .offers-section {
+        margin-bottom: 70px;
+    }
+
+    .offers-title {
+        font-size: 28px;
+    }
+
+    .offers-underline {
+        margin-bottom: 30px;
+    }
+
+    .offer-card {
+        padding: 24px 22px;
+        align-items: flex-start;
+    }
+
+    .offer-main h3 {
+        font-size: 20px;
+    }
+
+    .offer-main p {
+        font-size: 14px;
+    }
+
+    .offer-arrow {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 23px;
+        margin-left: 18px;
+    }
+
+    .contact-form-section {
+        padding: 45px 22px;
+        margin-bottom: 70px;
+    }
+
+    .contact-form-section::before {
+        width: 6px;
+    }
+
+    .form-title {
+        font-size: 28px;
+    }
+
+    .form-underline {
+        margin-bottom: 35px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .form-group textarea {
+        min-height: 170px;
+    }
+
+    .form-file-group label {
+        font-size: 14px;
+    }
+
+    .form-file-group p {
+        font-size: 12px;
+    }
+
+    .form-submit {
+        width: 100%;
+        padding: 17px 20px;
+    }
+
+    .map-title {
+        font-size: 34px;
+    }
+
+    .map-wrapper {
+        height: 350px;
+    }
 
     footer .Contact ul {
         list-style: none;
