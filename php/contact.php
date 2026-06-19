@@ -167,7 +167,7 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea name="message" placeholder="Votre message*" required></textarea>
+                        <textarea name="message" placeholder="Votre message*"></textarea>
                     </div>
 
                     <div class="form-file-group">
