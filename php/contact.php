@@ -2,7 +2,7 @@
 <html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BENAULT - Contact</title>
     <link rel="icon" type="image/x-icon" href="../images/logo_BENAULT.png">
     <link href="../css/contact.css" rel="stylesheet">
@@ -16,12 +16,12 @@
 
         <nav>
             <ul>
-                <li><a href="index.html" class="nav__link">Accueil</a></li>
-                <li><a href="Calcul.html" class="nav__link">Calcul et Conception</a></li>
-                <li><a href="Fabrication.html" class="nav__link">Fabrication et Pose</a></li>
-                <li><a href="Realisation.html" class="nav__link">Réalisation</a></li>
-                <li><a href="Export.html" class="nav__link">Export</a></li>
-                <li><a href="Contact.html" class="nav__link active">Contact</a></li>
+                <li><a href="../html/index.html" class="nav__link">Accueil</a></li>
+                <li><a href="../html/Calcul.html" class="nav__link">Calcul et Conception</a></li>
+                <li><a href="../html/Fabrication.html" class="nav__link">Fabrication et Pose</a></li>
+                <li><a href="../html/Realisation.html" class="nav__link">Réalisation</a></li>
+                <li><a href="../html/Export.html" class="nav__link">Export</a></li>
+                <li><a href="contact.php" class="nav__link active">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -67,22 +67,20 @@
                         <div class="offer-main">
                             <span class="offer-label">Offre d’emploi</span>
                             <h3>Monteurs en charpente métallique</h3>
+                            <p>Déplacements France entière</p>
                         </div>
 
-                        <div class="offer-arrow">
-                            →
-                        </div>
+                        <div class="offer-arrow">→</div>
                     </a>
 
                     <a href="../documents/offres/offre2.pdf" class="offer-card" target="_blank">
                         <div class="offer-main">
                             <span class="offer-label">Offre d’emploi</span>
                             <h3>Profils polyvalents et autonomes pour atelier</h3>
+                            <p>Charpente métallique</p>
                         </div>
 
-                        <div class="offer-arrow">
-                            →
-                        </div>
+                        <div class="offer-arrow">→</div>
                     </a>
                 </div>
             </section>
@@ -91,7 +89,47 @@
                 <h2 class="form-title">REJOIGNEZ-NOUS</h2>
                 <div class="form-underline"></div>
 
-                <form class="contact-form" action="#" method="post" enctype="multipart/form-data">
+                <?php if (isset($_GET['success'])): ?>
+                    <div class="form-message success">
+                        Votre candidature a bien été envoyée.
+                    </div>
+                <?php endif; ?>
+
+                <?php if (isset($_GET['erreur'])): ?>
+                    <div class="form-message error">
+                        <?php
+                            $erreur = $_GET['erreur'];
+
+                            if ($erreur === 'champs') {
+                                echo "Merci de remplir tous les champs obligatoires.";
+                            } elseif ($erreur === 'email') {
+                                echo "L'adresse e-mail n'est pas valide.";
+                            } elseif ($erreur === 'annonce') {
+                                echo "L'annonce sélectionnée n'est pas valide.";
+                            } elseif ($erreur === 'taille_cv') {
+                                echo "Le fichier CV dépasse la taille maximale autorisée de 6 Mo.";
+                            } elseif ($erreur === 'taille_lettre') {
+                                echo "La lettre de motivation dépasse la taille maximale autorisée de 6 Mo.";
+                            } elseif ($erreur === 'format_cv') {
+                                echo "Le format du CV n'est pas autorisé. Formats acceptés : PDF, DOC, DOCX, PNG, JPG, JPEG.";
+                            } elseif ($erreur === 'format_lettre') {
+                                echo "Le format de la lettre de motivation n'est pas autorisé. Formats acceptés : PDF, DOC, DOCX, PNG, JPG, JPEG.";
+                            } elseif ($erreur === 'upload_cv') {
+                                echo "Une erreur est survenue lors de l'envoi du CV.";
+                            } elseif ($erreur === 'upload_lettre') {
+                                echo "Une erreur est survenue lors de l'envoi de la lettre de motivation.";
+                            } elseif ($erreur === 'dossier') {
+                                echo "Erreur lors de la création du dossier de candidature.";
+                            } elseif ($erreur === 'bdd') {
+                                echo "Erreur lors de l'enregistrement. Merci de réessayer plus tard.";
+                            } else {
+                                echo "Une erreur est survenue. Merci de réessayer.";
+                            }
+                        ?>
+                    </div>
+                <?php endif; ?>
+
+                <form class="contact-form" action="traitement-candidature.php" method="post" enctype="multipart/form-data">
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" name="nom" placeholder="Nom*" required>
@@ -134,29 +172,44 @@
 
                     <div class="form-file-group">
                         <label for="cv">Chargez votre CV *</label>
-                        <input 
-                            type="file" 
-                            id="cv" 
-                            name="cv" 
-                            accept=".png,.jpeg,.jpg,.pdf,.doc,.docx" 
+                        <input
+                            type="file"
+                            id="cv"
+                            name="cv"
+                            accept=".png,.jpeg,.jpg,.pdf,.doc,.docx"
                             required
                         >
-                        <p>Formats acceptés : .png, .jpeg, .jpg, .pdf, .doc, .docx Taille maximale : 6Mo</p>
+                        <p>Formats acceptés : .png, .jpeg, .jpg, .pdf, .doc, .docx — Taille maximale : 6Mo</p>
                     </div>
 
                     <div class="form-file-group">
                         <label for="lettre-motivation">Chargez votre lettre de motivation *</label>
-                        <input 
-                            type="file" 
-                            id="lettre-motivation" 
-                            name="lettre_motivation" 
-                            accept=".png,.jpeg,.jpg,.pdf,.doc,.docx" 
+                        <input
+                            type="file"
+                            id="lettre-motivation"
+                            name="lettre_motivation"
+                            accept=".png,.jpeg,.jpg,.pdf,.doc,.docx"
                             required
                         >
-                        <p>Formats acceptés : .png, .jpeg, .jpg, .pdf, .doc, .docx Taille maximale : 6Mo</p>
+                        <p>Formats acceptés : .png, .jpeg, .jpg, .pdf, .doc, .docx — Taille maximale : 6Mo</p>
                     </div>
 
-                    <button type="submit" class="form-submit">Envoyer ma candidature</button>
+                    <div class="form-consent">
+                        <label>
+                            <input type="checkbox" name="rgpd" required>
+                            <span>
+                                J’accepte que mes données soient utilisées dans le cadre du traitement de ma candidature.
+                            </span>
+                        </label>
+                    </div>
+
+                    <p class="rgpd-note">
+                        Les informations transmises sont utilisées uniquement pour le traitement de votre candidature.
+                    </p>
+
+                    <div class="submit-wrapper">
+                        <button type="submit" class="form-submit">Envoyer ma candidature</button>
+                    </div>
                 </form>
             </section>
 
@@ -164,10 +217,10 @@
                 <h2 class="map-title">OÙ NOUS TROUVER ?</h2>
 
                 <div class="map-wrapper">
-                    <iframe 
-                        class="map-iframe" 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2524.475354508493!2d2.634125376878168!3d50.74823296587425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dd02086e3f6f19%3A0xc47e3a31c513df0d!2s237%20Rue%20Nationale%2C%2059270%20Fl%C3%AAtre!5e0!3m2!1sfr!2sfr!4v1710000000000" 
-                        allowfullscreen="" 
+                    <iframe
+                        class="map-iframe"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2524.475354508493!2d2.634125376878168!3d50.74823296587425!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dd02086e3f6f19%3A0xc47e3a31c513df0d!2s237%20Rue%20Nationale%2C%2059270%20Fl%C3%AAtre!5e0!3m2!1sfr!2sfr!4v1710000000000"
+                        allowfullscreen=""
                         loading="lazy">
                     </iframe>
                 </div>

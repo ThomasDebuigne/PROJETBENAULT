@@ -273,6 +273,25 @@ nav ul li {
     margin-bottom: 60px;
 }
 
+/* --- MESSAGES FORMULAIRE --- */
+.form-message {
+    padding: 16px 20px;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+.form-message.success {
+    background-color: #e8f7e8;
+    color: #146b14;
+    border-left: 5px solid #2fa82f;
+}
+
+.form-message.error {
+    background-color: #fde8e8;
+    color: #9d0000;
+    border-left: 5px solid #e60000;
+}
+
 .contact-form {
     width: 100%;
 }
@@ -364,13 +383,43 @@ nav ul li {
     margin-top: 10px;
 }
 
+/* --- RGPD --- */
+.form-consent {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.form-consent label {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.form-consent input {
+    margin-top: 4px;
+}
+
+.rgpd-note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+    margin-bottom: 25px;
+}
+
 /* --- BOUTON FORMULAIRE --- */
+.submit-wrapper {
+    margin-top: 60px;
+}
+
 .form-submit {
     display: inline-block;
     background-color: #e60000;
     color: #ffffff;
     border: none;
-    margin-top: 10px;
     padding: 18px 42px;
     font-size: 16px;
     font-weight: 900;
@@ -443,8 +492,6 @@ footer .Contact li {
 }
 
 /* --- RESPONSIVE --- */
-
-/* Tablettes et petits écrans */
 @media (max-width: 1200px) {
     header {
         padding: 20px 50px;
@@ -455,7 +502,6 @@ footer .Contact li {
     }
 }
 
-/* Tablettes portrait et mobiles larges */
 @media (max-width: 992px) {
     header {
         padding: 15px 30px;
@@ -523,7 +569,6 @@ footer .Contact li {
     }
 }
 
-/* Smartphones */
 @media (max-width: 600px) {
     header {
         position: relative;
@@ -618,6 +663,19 @@ footer .Contact li {
 
     .form-file-group p {
         font-size: 12px;
+    }
+
+    .form-consent {
+        font-size: 13px;
+    }
+
+    .rgpd-note {
+        font-size: 11px;
+        margin-bottom: 20px;
+    }
+
+    .submit-wrapper {
+        margin-top: 45px;
     }
 
     .form-submit {
