@@ -1,7 +1,3 @@
-
-/* on importe l'ancien style pour garder la cohérence */
-@import url('calcul.css'); 
-
 .container-fabrication {
     padding: 50px 5%;
     max-width: 1400px;

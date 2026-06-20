@@ -6,6 +6,8 @@
     <title>BENAULT - Contact</title>
     <link rel="icon" type="image/x-icon" href="../images/logo_BENAULT.png">
     <link href="../css/contact.css" rel="stylesheet">
+    <link href="../css/commun.css" rel="stylesheet">
+
 </head>
 
 <body>
