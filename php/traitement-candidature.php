@@ -58,6 +58,30 @@ function nettoyerNom($texte) {
     return $texte ?: 'candidat';
 }
 
+function supprimerDossier($dossier) {
+    if (!is_dir($dossier)) {
+        return;
+    }
+
+    $elements = scandir($dossier);
+
+    foreach ($elements as $element) {
+        if ($element === '.' || $element === '..') {
+            continue;
+        }
+
+        $chemin = $dossier . DIRECTORY_SEPARATOR . $element;
+
+        if (is_dir($chemin)) {
+            supprimerDossier($chemin);
+        } else {
+            unlink($chemin);
+        }
+    }
+
+    rmdir($dossier);
+}
+
 function enregistrerFichier($champ, $prefixe, $dossierCandidat) {
     if (!isset($_FILES[$champ])) {
         return [
@@ -162,7 +186,7 @@ function enregistrerFichier($champ, $prefixe, $dossierCandidat) {
 $nomNettoye = nettoyerNom($nom);
 $prenomNettoye = nettoyerNom($prenom);
 
-$nomDossierCandidat = $nomNettoye . '_' . $prenomNettoye;
+$nomDossierCandidat = date('Ymd_His') . '_' . $nomNettoye . '_' . $prenomNettoye . '_' . bin2hex(random_bytes(4));
 
 $dossierBase = __DIR__ . '/../prive/candidatures/';
 $dossierCandidat = $dossierBase . $nomDossierCandidat;
@@ -184,6 +208,7 @@ if (!$cv['success']) {
 $lettre = enregistrerFichier('lettre_motivation', 'lettre_motivation', $dossierCandidat);
 
 if (!$lettre['success']) {
+    supprimerDossier($dossierCandidat);
     header('Location: contact.php?erreur=' . $lettre['erreur']);
     exit;
 }
@@ -234,6 +259,7 @@ try {
     exit;
 
 } catch (Exception $e) {
+    supprimerDossier($dossierCandidat);
     header('Location: contact.php?erreur=bdd');
     exit;
 }
