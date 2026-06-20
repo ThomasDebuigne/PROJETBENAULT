@@ -7,7 +7,6 @@
     <link rel="icon" type="image/x-icon" href="../images/logo_BENAULT.png">
     <link href="../css/contact.css" rel="stylesheet">
     <link href="../css/commun.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -109,9 +108,9 @@
                             } elseif ($erreur === 'annonce') {
                                 echo "L'annonce sélectionnée n'est pas valide.";
                             } elseif ($erreur === 'taille_cv') {
-                                echo "Le fichier CV dépasse la taille maximale autorisée de 6 Mo.";
+                                echo "Le fichier CV dépasse la taille maximale autorisée de 5 Mo.";
                             } elseif ($erreur === 'taille_lettre') {
-                                echo "La lettre de motivation dépasse la taille maximale autorisée de 6 Mo.";
+                                echo "La lettre de motivation dépasse la taille maximale autorisée de 5 Mo.";
                             } elseif ($erreur === 'format_cv') {
                                 echo "Le format du CV n'est pas autorisé. Formats acceptés : PDF, DOC, DOCX, PNG, JPG, JPEG.";
                             } elseif ($erreur === 'format_lettre') {
@@ -131,7 +130,11 @@
                     </div>
                 <?php endif; ?>
 
-                <form class="contact-form" action="traitement-candidature.php" method="post" enctype="multipart/form-data">
+                <div id="file-error" class="form-message error" style="display: none;"></div>
+
+                <form id="candidature-form" class="contact-form" action="traitement-candidature.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="5242880">
+
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" name="nom" placeholder="Nom*" required>
@@ -169,7 +172,7 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea name="message" placeholder="Votre message*"></textarea>
+                        <textarea name="message" placeholder="Votre message*" required></textarea>
                     </div>
 
                     <div class="form-file-group">
@@ -181,7 +184,7 @@
                             accept=".png,.jpeg,.jpg,.pdf,.doc,.docx"
                             required
                         >
-                        <p>Formats acceptés : .png, .jpeg, .jpg, .pdf, .doc, .docx — Taille maximale : 6Mo</p>
+                        <p>Formats acceptés : .png, .jpeg, .jpg, .pdf, .doc, .docx — Taille maximale : 5 Mo</p>
                     </div>
 
                     <div class="form-file-group">
@@ -193,7 +196,7 @@
                             accept=".png,.jpeg,.jpg,.pdf,.doc,.docx"
                             required
                         >
-                        <p>Formats acceptés : .png, .jpeg, .jpg, .pdf, .doc, .docx — Taille maximale : 6Mo</p>
+                        <p>Formats acceptés : .png, .jpeg, .jpg, .pdf, .doc, .docx — Taille maximale : 5 Mo</p>
                     </div>
 
                     <div class="form-consent">
@@ -253,5 +256,72 @@
             </ul>
         </nav>
     </footer>
+
+    <script>
+        const maxSize = 5 * 1024 * 1024;
+        const allowedExtensions = ['pdf', 'doc', 'docx', 'png', 'jpg', 'jpeg'];
+
+        const form = document.getElementById('candidature-form');
+        const cvInput = document.getElementById('cv');
+        const lettreInput = document.getElementById('lettre-motivation');
+        const fileError = document.getElementById('file-error');
+
+        function afficherErreur(message) {
+            fileError.textContent = message;
+            fileError.style.display = 'block';
+            fileError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function cacherErreur() {
+            fileError.textContent = '';
+            fileError.style.display = 'none';
+        }
+
+        function verifierFichier(input, nomChamp) {
+            if (!input.files || input.files.length === 0) {
+                return true;
+            }
+
+            const file = input.files[0];
+            const fileName = file.name.toLowerCase();
+            const extension = fileName.split('.').pop();
+
+            if (!allowedExtensions.includes(extension)) {
+                afficherErreur(
+                    "Le format du fichier " + nomChamp + " n'est pas autorisé. Formats acceptés : PDF, DOC, DOCX, PNG, JPG, JPEG."
+                );
+                input.value = '';
+                return false;
+            }
+
+            if (file.size > maxSize) {
+                afficherErreur(
+                    "Le fichier " + nomChamp + " dépasse la taille maximale autorisée de 5 Mo."
+                );
+                input.value = '';
+                return false;
+            }
+
+            cacherErreur();
+            return true;
+        }
+
+        cvInput.addEventListener('change', function () {
+            verifierFichier(cvInput, 'CV');
+        });
+
+        lettreInput.addEventListener('change', function () {
+            verifierFichier(lettreInput, 'lettre de motivation');
+        });
+
+        form.addEventListener('submit', function (event) {
+            const cvOk = verifierFichier(cvInput, 'CV');
+            const lettreOk = verifierFichier(lettreInput, 'lettre de motivation');
+
+            if (!cvOk || !lettreOk) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>

@@ -107,7 +107,7 @@ function enregistrerFichier($champ, $prefixe, $dossierCandidat) {
         ];
     }
 
-    $tailleMax = 6 * 1024 * 1024;
+    $tailleMax = 5 * 1024 * 1024;
 
     if ($_FILES[$champ]['size'] > $tailleMax) {
         return [
